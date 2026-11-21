@@ -1,0 +1,5 @@
+*.csv
+*.json
+!examples/*.json
+__pycache__/
+.venv/

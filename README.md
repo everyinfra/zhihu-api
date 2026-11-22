@@ -80,13 +80,106 @@ Custom connectors in Claude on the web and desktop, and ChatGPT, accept only a U
 
 ### Fields
 
-The fields of each capability are documented on the English pages linked below.
+These are the fields that the 5 capabilities returned in our test. Each meaning is the first sentence of the field's entry in the API documentation. The link under each table has the full text.
 
-- `search`: <https://everyinfra.com/en/zhihu-api/search?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
-- `content_detail`: <https://everyinfra.com/en/zhihu-api/content_detail?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
-- `content_comments`: <https://everyinfra.com/en/zhihu-api/content_comments?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
-- `profile`: <https://everyinfra.com/en/zhihu-api/profile?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
-- `user_articles`: <https://everyinfra.com/en/zhihu-api/user_articles?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
+#### `search` (keyword search)
+
+| Field | Meaning |
+|---|---|
+| `id` | The record's unique ID on the platform. |
+| `type` | Record type; values depend on the capability (for example video / image / text). |
+| `url` | Link to the record on the platform. |
+| `title` | Title. null when the platform has no titles (for example text-only posts). |
+| `text` | Body text with HTML removed, returned in full and never cut short (on a few platforms the list results themselves carry only an excerpt; the platform's field notes say so). |
+| `like_count` | Likes. null means the platform or this capability does not disclose it; it is not 0. |
+| `comment_count` | Comments. null means not disclosed, not 0. |
+| `posted_at` | Publish time in ISO 8601, UTC (for example 2026-08-07T12:34:56+00:00). |
+| `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
+| `author_id` | Author's unique ID on the platform. |
+| `author_name` | Author's display name. |
+| `author_url` | Link to the author's profile on the platform. |
+| `author_avatar_url` | Author avatar URL; on comment results, the commenter's avatar. |
+| `author_follower_count` | Author's follower count. null means not disclosed. |
+| `author_bio` | Author bio as written on Zhihu. |
+| `collect_count` | Saves or favorites. null means not disclosed, not 0. |
+| `author_verification_label` | Verification description of the author, such as a profession or institution. |
+
+All parameters and fields: <https://everyinfra.com/en/zhihu-api/search?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
+
+#### `content_detail` (content detail)
+
+| Field | Meaning |
+|---|---|
+| `id` | The record's unique ID on the platform. |
+| `type` | Record type; values depend on the capability (for example video / image / text). |
+| `url` | Link to the record on the platform. |
+| `title` | Title. null when the platform has no titles (for example text-only posts). |
+| `text` | Body text with HTML removed, returned in full and never cut short (on a few platforms the list results themselves carry only an excerpt; the platform's field notes say so). |
+| `like_count` | Likes. null means the platform or this capability does not disclose it; it is not 0. |
+| `comment_count` | Comments. null means not disclosed, not 0. |
+| `collect_count` | Saves or favorites. null means not disclosed, not 0. |
+| `posted_at` | Publish time in ISO 8601, UTC (for example 2026-08-07T12:34:56+00:00). |
+| `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
+| `author_id` | Author's unique ID on the platform. |
+| `author_name` | Author's display name. |
+| `author_url` | Link to the author's profile on the platform. |
+| `author_avatar_url` | Author avatar URL; on comment results, the commenter's avatar. |
+| `author_bio` | Author bio as written on Zhihu. |
+| `author_verified` | Whether the author is verified. |
+| `author_verification_label` | Verification description of the author, such as a profession or institution. |
+
+All parameters and fields: <https://everyinfra.com/en/zhihu-api/content_detail?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
+
+#### `content_comments` (content comments)
+
+| Field | Meaning |
+|---|---|
+| `id` | The record's unique ID on the platform. |
+| `text` | Body text with HTML removed, returned in full and never cut short (on a few platforms the list results themselves carry only an excerpt; the platform's field notes say so). |
+| `like_count` | Likes. null means the platform or this capability does not disclose it; it is not 0. |
+| `posted_at` | Publish time in ISO 8601, UTC (for example 2026-08-07T12:34:56+00:00). |
+| `reply_count` | Replies, usually replies to a comment. null means not disclosed. |
+| `author_id` | Author's unique ID on the platform. |
+| `author_name` | Author's display name. |
+| `author_avatar_url` | Author avatar URL; on comment results, the commenter's avatar. |
+| `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
+
+All parameters and fields: <https://everyinfra.com/en/zhihu-api/content_comments?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
+
+#### `profile` (profile or object details)
+
+| Field | Meaning |
+|---|---|
+| `answer_count` | Answer count: on profile, the answers the author has written; on hot_list, the answers under the question. |
+| `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
+
+Other fields that the test returned: `article_count`.
+
+All parameters and fields: <https://everyinfra.com/en/zhihu-api/profile?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
+
+#### `user_articles` (user articles)
+
+| Field | Meaning |
+|---|---|
+| `id` | The record's unique ID on the platform. |
+| `url` | Link to the record on the platform. |
+| `title` | Title. null when the platform has no titles (for example text-only posts). |
+| `text` | Body text with HTML removed, returned in full and never cut short (on a few platforms the list results themselves carry only an excerpt; the platform's field notes say so). |
+| `like_count` | Likes. null means the platform or this capability does not disclose it; it is not 0. |
+| `comment_count` | Comments. null means not disclosed, not 0. |
+| `collect_count` | Saves or favorites. null means not disclosed, not 0. |
+| `posted_at` | Publish time in ISO 8601, UTC (for example 2026-08-07T12:34:56+00:00). |
+| `cover_image_url` | Cover image URL. |
+| `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
+| `author_id` | Author's unique ID on the platform. |
+| `author_name` | Author's display name. |
+| `author_url` | Link to the author's profile on the platform. |
+| `author_avatar_url` | Author avatar URL; on comment results, the commenter's avatar. |
+| `author_bio` | Author bio as written on Zhihu. |
+| `author_verified` | Whether the author is verified. |
+| `author_verification_label` | Verification description of the author, such as a profession or institution. |
+
+All parameters and fields: <https://everyinfra.com/en/zhihu-api/user_articles?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
 
 ### FAQ
 

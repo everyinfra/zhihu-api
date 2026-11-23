@@ -151,9 +151,8 @@ All parameters and fields: <https://everyinfra.com/en/zhihu-api/content_comments
 | Field | Meaning |
 |---|---|
 | `answer_count` | Answer count: on profile, the answers the author has written; on hot_list, the answers under the question. |
+| `article_count` | Number of articles. |
 | `platform` | Source platform identifier, the same as platform in the request (for example xiaohongshu, tiktok). |
-
-Other fields that the test returned: `article_count`.
 
 All parameters and fields: <https://everyinfra.com/en/zhihu-api/profile?utm_source=github&utm_medium=example_repo&utm_campaign=zhihu-api>
 
@@ -319,7 +318,7 @@ Claude 网页版和桌面版的自定义连接器、ChatGPT 只能填网址：�
 | 字段 | 含义 |
 |---|---|
 | `id` | 该记录在原平台上的唯一标识。 |
-| `type` | 内容类型（answer 回答 / article 文章 / video 视频；hot_list 上是 question 问题；user_pins 是 pin 想法；column_search 是 column 专栏；salt_search 是盐选商品类型，如 paid_column_chapter 付费专栏的一篇；scholar_search 是 paper 论文；ebook_search 是 publication 整本书 / publication_chapter 书里的一章）。 |
+| `type` | 内容类型（answer 回答 / article 文章 / video 视频；hot_list 上是 question 问题；user_pins 是 pin 想法；column_search 是 column 专栏；salt_search 是盐选商品类型，如 paid_column_chapter 付费专栏的一篇；scholar_search 是 paper 论文；ebook_search 是 publication 整本书 / publication_chapter 书里的一章；question_detail 是 question 问题；pin_detail 是 pin 想法；column_articles 是 article 文章 / answer 回答 / pin 想法 / video 视频；related_articles 是 article 文章；article_relationship 是那一行提示的种类，如 reaction_endorse 赞同）。 |
 | `url` | 该记录在原平台上的可访问链接。 |
 | `title` | 标题。 |
 | `text` | 正文内容，已去除 HTML 标签，全文返回、不截断（个别平台的列表结果本身只有摘要，以该平台的字段说明为准）。 |
@@ -343,7 +342,7 @@ Claude 网页版和桌面版的自定义连接器、ChatGPT 只能填网址：�
 | 字段 | 含义 |
 |---|---|
 | `id` | 该记录在原平台上的唯一标识。 |
-| `type` | 内容类型（answer 回答 / article 文章 / video 视频；hot_list 上是 question 问题；user_pins 是 pin 想法；column_search 是 column 专栏；salt_search 是盐选商品类型，如 paid_column_chapter 付费专栏的一篇；scholar_search 是 paper 论文；ebook_search 是 publication 整本书 / publication_chapter 书里的一章）。 |
+| `type` | 内容类型（answer 回答 / article 文章 / video 视频；hot_list 上是 question 问题；user_pins 是 pin 想法；column_search 是 column 专栏；salt_search 是盐选商品类型，如 paid_column_chapter 付费专栏的一篇；scholar_search 是 paper 论文；ebook_search 是 publication 整本书 / publication_chapter 书里的一章；question_detail 是 question 问题；pin_detail 是 pin 想法；column_articles 是 article 文章 / answer 回答 / pin 想法 / video 视频；related_articles 是 article 文章；article_relationship 是那一行提示的种类，如 reaction_endorse 赞同）。 |
 | `url` | 该记录在原平台上的可访问链接。 |
 | `title` | 标题。 |
 | `text` | 正文内容，已去除 HTML 标签，全文返回、不截断（个别平台的列表结果本身只有摘要，以该平台的字段说明为准）。 |
@@ -382,7 +381,7 @@ Claude 网页版和桌面版的自定义连接器、ChatGPT 只能填网址：�
 
 | 字段 | 含义 |
 |---|---|
-| `answer_count` | 回答数：profile、user_search 是这个账号写过的回答总数；hot_list 是这个问题下的回答数。 |
+| `answer_count` | 回答数：profile、user_search 是这个账号写过的回答总数；hot_list、question_detail 是这个问题下的回答数。 |
 | `article_count` | 文章数：profile、user_search 是这个账号的文章总数；column_search 是这个专栏收录的文章数。 |
 | `platform` | 数据来源平台标识，与请求里的 platform 一致（如 xiaohongshu、tiktok）。 |
 
